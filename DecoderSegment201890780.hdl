@@ -12,20 +12,27 @@ CHIP DecoderSegment201890780 {
 
     And(a=nota, b=C, out=andout1);
 
-    And(a=nota, b=notb, out=andout2);   
-    And(a=andout2, b=notd, out=andout3);
+    And(a=nota, b=B, out=temp1);   
+    And(a=temp1, b=D, out=andout2);
     
-    And(a=B, b=D, out=andout4);
+    And(a=B, b=C, out=andout3);
 
-    And(a=A, b=C, out=andout5);
+    And(a=C, b=notd, out=andout4);
 
-    And(a=A, b=notc, out=andout6);
+    And(a=A, b=notc, out=temp2);
+    And(a=temp2, b=notd, out=andout5);
+
+    And(a=notb, b=notc, out=temp3);
+    And(a=temp3, b=notd, out=andout6);
+
+    And(a=A, b=notb, out=temp4);
+    And(a=temp4, b=notc, out=andout7);
 
 
-
-    Or(a=andout1, b=andout3, out=orout1);
-    Or(a=orout1, b=andout4, out=orout2);
-    Or(a=orout2, b=andout5, out=orout3);
-    Or(a=orout3, b=andout6, out=c);
-                              
+    Or(a=andout1, b=andout2, out=orout1);
+    Or(a=orout1, b=andout3, out=orout2);
+    Or(a=orout2, b=andout4, out=orout3);
+    Or(a=orout3, b=andout5, out=orout4);
+    Or(a=orout4, b=andout6, out=orout5);       
+    Or(a=orout5, b=andout7, out=c);                   
 }
