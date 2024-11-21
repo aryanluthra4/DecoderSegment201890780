@@ -17,7 +17,7 @@ CHIP DecoderSegment201890780 {
     
     And(a=C, b=notd, out=andout4);
 
-    And(a=notC, b=D, out=andout5);
+    And(a=notc, b=D, out=andout5);
 
     And(a=A, b=notb, out=andout6);
 
