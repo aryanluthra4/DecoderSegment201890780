@@ -2,8 +2,7 @@ CHIP DecoderSegment201890780 {
     IN A, B, C, D;    
     OUT c;            
 
-    PARTS:
-    //~a~d + ~ac + c~d + a~b                 
+    PARTS:             
 
     Not(in=A, out=nota);
     Not(in=B, out=notb);
