@@ -1,0 +1,20 @@
+CHIP segmentb {
+    IN A, B, C, D;
+    OUT b;
+
+    PARTS:
+    //0=true, 1=false, 2=true, 3=false, 4=false, 5=false, 6=true, 7=false, 8=true, 9=false, A=true, b=true, C=true, d=true, E=true, F=true
+    //(A ∧ B) v (A ∧ C) v (C ∧ ¬D) v (¬B ∧ ¬D)
+
+    Not(in=B, out=notb);
+    Not(in=D, out=notd);
+
+    And(a=A, b=B, out=and1);
+    And(a=A, b=C, out=and2);
+    And(a=C, b=notd, out=and3);
+    And(a=notb, b=notd, out=and4);
+
+    Or(a=and1, b=and2, out=or1);
+    Or(a=and3, b=and4, out=or2);
+    Or(a=or1, b=or2, out=b);
+}

@@ -1,0 +1,46 @@
+CHIP DecoderSegment201856282 {
+    IN A,B,C,D;
+    OUT a;
+    
+    
+    
+    PARTS:
+        Not (in=A, out=notA);
+        Not (in=B, out=notB);
+        Not (in=C, out=notC);
+        Not (in=D, out=notD);
+
+        And (a=notA, b=notB, out=notAandnotB);
+        And (a=notD, b=notAandnotB, out=firstpart);
+
+        And (a=C, b=D, out=CandD);
+        And (a=notAandnotB, b=CandD, out=secondpart);
+
+        And (a=notA, b=B, out=notAandB);
+        And (a=notC, b=D, out=notCandD);
+        And (a=notAandB, b=notCandD, out=thirdpart);
+
+        And (a=C, b=notD, out=CandnotD);
+        And (a=notAandB, b=CandnotD, out=fourthpart);
+        
+        And (a=A, b=notB, out=AandnotB);
+        And (a=notC, b=notD, out=notCandnotD);
+        And (a=AandnotB, b=notCandnotD, out=fifthpart);
+
+        And (a=A, b=notC, out=AandnotC);
+        And (a= AandnotC, b=D, out=sixthpart);
+
+        And (a=AandnotB, b=CandD, out=seventhpart);
+
+        And (a=A, b=B, out=AandB);
+        And (a=AandB, b=notD, out=eighthpart);
+
+        Or (a=firstpart, b=secondpart, out=combination1);
+        Or (a=thirdpart, b=fourthpart, out=combination2);
+        Or (a=fifthpart, b=sixthpart, out=combination3);
+        Or (a=seventhpart, b=eighthpart, out=combination4);
+        Or (a=combination1, b=combination2, out=finalcombination1);
+        Or (a=combination3, b=combination4, out=finalcombination2);
+        Or (a=finalcombination1, b=finalcombination2, out=a);
+}   
+

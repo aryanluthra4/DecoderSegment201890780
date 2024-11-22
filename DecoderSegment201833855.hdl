@@ -1,0 +1,26 @@
+CHIP DecoderSegment201833855 {
+    IN A,B,C,D;
+    OUT f;
+
+    PARTS:
+    //(A v ¬B v ¬C v ¬D) ∧ (A v B v C) ∧ (¬A v ¬B v C v D) 
+
+    Not(in=A, out=nota);
+    Not(in=B, out=notb);
+    Not(in=C, out=notc);
+    Not(in=D, out=notd);
+
+    Or(a=A, b=notb, out=or1);
+    Or(a=notc, b=notd, out=or2);
+    Or(a=or1, b=or2, out=or3);
+
+    Or(a=A, b=B, out=or4);
+    Or(a=or4, b=C, out=or5);
+
+    Or(a=nota, b=notb, out=or6);
+    Or(a=C, b=D, out=or7);
+    Or(a=or6, b=or7, out=or8);
+
+    And(a=or3, b=or5, out=and1);
+    And(a=and1, b= or8, out=f);
+}

@@ -1,0 +1,14 @@
+CHIP Decoder201890780 {
+IN A,B,C,D;
+OUT a,b,c,d,e,f,g;
+PARTS:
+
+DecoderSegment201856282(A=A,B=B,C=C,D=D,a=a);
+segmentb(A=A,B=B,C=C,D=D,b=b);
+DecoderSegment201890780(A=A,B=B,C=C,D=D,c=c);
+DecoderSegment201736276(A=A,B=B,C=C,D=D,d=d);
+DecoderSegment201882778(A=A,B=B,C=C,D=D,e=e);
+DecoderSegment201833855(A=A,B=B,C=C,D=D,f=f);
+segmentg(A=A,B=B,C=C,D=D,g=g);
+
+}

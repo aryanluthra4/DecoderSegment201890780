@@ -1,0 +1,20 @@
+CHIP DecoderSegment201882778 {
+    IN A,B,C,D;
+    OUT e;
+    PARTS:
+
+    Not(in=A, out=NotA);
+    Not(in=B, out=NotB);
+    Not(in=C, out=NotC);
+
+    Or(a=B, b=NotC, out=ConnectToD);
+    Or(a=ConnectToD, b=D, out=ConnectToNotA);
+    And(a=NotA, b=ConnectToNotA, out=FirstSOP);
+
+    And(a=A, b=NotB, out=SecondSOP);
+
+    And(a=NotC, b=D, out=ThirdSOP);
+
+    Or(a=FirstSOP, b=SecondSOP, out=HalfDone);
+    Or(a=HalfDone, b=ThirdSOP, out=e);
+}
