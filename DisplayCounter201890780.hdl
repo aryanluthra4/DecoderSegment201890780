@@ -1,4 +1,4 @@
-DisplayCounter201890780 {
+CHIP DisplayCounter201890780 {
 
     IN inc, reset;
     OUT a, b, c, d, e, f, g;
