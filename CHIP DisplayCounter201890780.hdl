@@ -15,5 +15,5 @@ CHIP DisplayCounter201890780 {
     Not(in=D, out=notD);
 
     Xor(a=B, b=C, out=BxorC);
-    Decoder201830724(A=A, B=B, C=C, D=D, a=a, b=b, c=c, d=d, e=e, f=f, g=g);
+    Decoder201890780(A=A, B=B, C=C, D=D, a=a, b=b, c=c, d=d, e=e, f=f, g=g);
 }
